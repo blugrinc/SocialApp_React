@@ -1,10 +1,8 @@
-<!---
-Hi! We're happy you opened this file, not everyone does!
-To let us know you did, paste a capybara picture 
-in the How to Run section 😊 
--->
+![images](https://user-images.githubusercontent.com/102974286/214517928-45de71dc-6532-46db-a12f-7e9819359533.png)
 
-# Web & Mobile Interview Assignment
+<details>
+<summary> Web & Mobile Interview Assignment</summary>
+<br>
 
 ## Introduction
 
@@ -84,5 +82,8 @@ The requirements for this challenge are the exact same requirements of the previ
 The requirements for this challenge are the exact same requirements of the Frontend challenges, but we ask you to fullfil these requirements through a mobile application. For example, you may choose [React Native](https://reactnative.dev/), [Flutter](https://flutter.dev/) or any other technology you feel comfortable developing mobile apps with.
 
 --- 
-# How to run
+
+</details>
+
+# How to run 
 ...
