@@ -1,10 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 
+import { SinglePost } from "../../components/singlePost/SinglePost";
 import { startFetchingPost } from "./store/post.slice";
 import { selectAllPost } from "./store/post.selector";
+import "./style.css";
 
 export const Posts = () => {
   const post = useAppSelector(selectAllPost);
@@ -17,19 +18,10 @@ export const Posts = () => {
   }, []);
 
   return (
-    <div>
+    <section className="posts-list">
       {post.map((element) => (
-        <div key={element.id}>
-          <br />
-          userId: {element.userId}
-          <br />
-          postId: {element.id}
-          <br />
-          Titolo: {element.title}
-          <br />
-          Corpo: {element.body}
-        </div>
+        <SinglePost key={element.id} post={element} />
       ))}
-    </div>
+    </section>
   );
 };
