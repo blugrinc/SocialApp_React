@@ -1,16 +1,14 @@
 import React from "react";
-
-import { useSelector } from "react-redux";
-import { Post } from "../../model/post";
+import { useAppSelector } from "../../../hooks/hooks";
+import { selectAllUsers } from "../../features/users/store/user.selector";
 
 interface Props {
   userId: number;
 }
+
 export const PostAuthor = ({ userId }: Props) => {
-  return (
-    <span>
-      {/* by {author ? author.name : "Unknown author"} */}
-      Author: {userId}
-    </span>
-  );
+  const allUser = useAppSelector(selectAllUsers);
+  const user = allUser.find((user) => user.id === userId);
+
+  return <span>by {user ? user.name : "Unknown author"}</span>;
 };

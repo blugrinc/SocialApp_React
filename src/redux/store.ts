@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../app/components/counter/counterSlice';
 import postsReducer from '../app/features/posts/store/post.slice';
+import usersReducer from '../app/features/users/store/user.slice';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './rootSaga';
 
@@ -8,8 +8,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     posts: postsReducer,
+    users: usersReducer,
   },
   middleware: () => [ sagaMiddleware ],
 });

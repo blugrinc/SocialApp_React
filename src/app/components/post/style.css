@@ -1,9 +1,15 @@
 .post h2 {
   font-size: 2.5rem;
-  margin-bottom: 5px;
+  margin: 30px 0px;
 }
 
-.singlePost {
+.post {
+  margin: 20px 0px;
+  padding: 5px 30px;
+  background-color: rgb(203, 203, 203);
+  border-radius: 10px;
+}
+.listPost {
   padding: 0.25rem 0.25rem;
   border: 2px solid rgb(6, 6, 6);
   border-radius: 7px;
@@ -11,19 +17,21 @@
   background-color: rgb(134, 239, 185);
 }
 
-.singlePost + .singlePost {
+.listPost + .listPost {
   margin-top: 0.5rem;
 }
 
-.singlePost h3 {
+.listPost h3 {
   margin: 0;
   font-size: 1.5rem;
 }
 
-p.post-content {
-  margin-top: 10px;
+.postElement {
+  display: flex;
+  justify-content: space-between;
 }
 
+button,
 .button {
   display: inline-block;
   background: #1976d2;
@@ -31,4 +39,5 @@ p.post-content {
   border-radius: 4px;
   font-weight: 700;
   padding: 0.75rem 1.5rem;
+  border: 2px solid black;
 }

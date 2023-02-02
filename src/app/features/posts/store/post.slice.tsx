@@ -20,8 +20,20 @@ const postSlice = createSlice({
   reducers: {
     startFetchingPost: (state) => state,
 
+    //CRUD:
     addPost: (state, action: PayloadAction<Post>) => {
-      state.data = [...state.data, action.payload];
+      state.data = [action.payload, ...state.data];
+    },
+
+    editPost: (state, action: PayloadAction<Post>) => {
+      const data = state.data.find((post) => post.id === action.payload.id);
+      if (data) {
+        data.title = action.payload.title;
+        data.body = action.payload.body;
+      }
+    },
+    deletePost: (state, action: PayloadAction<Post>) => {
+      state.data = state.data.filter((post) => post.id !== action.payload.id);
     },
 
     getAllPost: (state, action: PayloadAction<Post[]>) => {
@@ -40,10 +52,12 @@ const postSlice = createSlice({
 
 export const {
   startFetchingPost,
-  addPost,
   getAllPost,
   setLoading,
   loadingError,
+  addPost,
+  deletePost,
+  editPost,
 } = postSlice.actions;
 
 export default postSlice.reducer;

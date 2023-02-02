@@ -13,8 +13,11 @@ nav section {
   color: white;
 }
 
-nav a,
-nav a:active {
+a {
+  text-decoration: none;
+}
+
+nav a {
   font-weight: 700;
   padding: 0.25rem 1.5rem;
   border-radius: 4px;
@@ -29,6 +32,13 @@ nav a:first-of-type {
 nav a:hover {
   color: white;
   background: #9a8103;
+  text-decoration: underline;
+}
+
+.navLinks a.active {
+  color: #000;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .navContent {
@@ -49,5 +59,6 @@ nav a:hover {
 }
 
 section h1 {
-  font-size: 3rem;
+  font-size: 1.8rem;
+  margin: 10px 0;
 }
