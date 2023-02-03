@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { ListPost, SinglePost } from "../../components/post/Post";
 import { AddPostForm } from "../../components/addPostForm/AddPostForm";
-import { startFetchingPost } from "./store/post.slice";
+import { startFetchingPost, startFetchingComments } from "./store/post.slice";
 import {
   selectAllPost,
   selectPage,
@@ -28,6 +28,7 @@ export const PostList = () => {
 
   useEffect(() => {
     dispatch(startFetchingPost());
+    dispatch(startFetchingComments());
   }, [page]);
 
   return (

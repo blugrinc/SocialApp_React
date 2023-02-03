@@ -51,7 +51,7 @@ function* loadCommentListSaga() {
     const page: number = yield select(selectPage);
     const endpoint = `comments?_limit=50&_page=${page}`;
     const response: Comment[] = yield call(postApi.getAll, endpoint);
-
+    yield delay(1500); //LOADING TEST
     if (response) {
       console.log("SAGA/LOADING/COMMENT", response);
       yield put(getAllComment(response));
