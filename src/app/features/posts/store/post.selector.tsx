@@ -7,3 +7,15 @@ export const selectAllPost = createSelector(
   [selectDomainList],
   (object) => object.data
 );
+export const selectAllComment = createSelector(
+  [selectDomainList],
+  (object) => object.dataComments
+);
+export const selectPage = createSelector(
+  [selectDomainList],
+  (object) => object.page
+);
+export const selectLoading = createSelector(
+  [selectDomainList],
+  (object) => object.loading
+);

@@ -50,7 +50,9 @@ export const AddPostForm = () => {
           {/*  CONTENUTO */}
           <label>Content:</label>
           <Field name="body" as="textarea" placeholder="Body Post" />
-          <button type="submit"> Save Post </button>
+          <button className="button" type="submit">
+            Save Post
+          </button>
         </Form>
       </Formik>
     </section>

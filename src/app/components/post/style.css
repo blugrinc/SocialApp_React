@@ -14,7 +14,7 @@
   border: 2px solid rgb(6, 6, 6);
   border-radius: 7px;
   margin-bottom: 10px;
-  background-color: rgb(134, 239, 185);
+  background-color: rgb(169, 202, 128);
 }
 
 .listPost + .listPost {
@@ -31,13 +31,61 @@
   justify-content: space-between;
 }
 
-button,
-.button {
-  display: inline-block;
-  background: #1976d2;
+/* COMMENTS */
+.comment {
+  width: 83%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.comment-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.comment-content {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.comment-container {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 96%;
+  right: 1%;
+  background-color: red;
   color: white;
-  border-radius: 4px;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid black;
+  font-size: 15px;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }

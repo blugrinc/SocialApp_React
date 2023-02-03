@@ -52,7 +52,9 @@ export const EditPost = () => {
             {/*  CONTENUTO */}
             <label>Content:</label>
             <Field name="body" as="textarea" placeholder="Body Post" />
-            <button type="submit"> Edit Post </button>
+            <button className="button" type="submit">
+              Edit Post
+            </button>
           </Form>
         </Formik>
       </section>

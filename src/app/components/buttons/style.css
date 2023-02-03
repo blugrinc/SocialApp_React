@@ -1,0 +1,34 @@
+.button {
+  display: inline-block;
+  background: #105a2cd2;
+  color: white;
+  border-radius: 4px;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid black;
+}
+
+.delete {
+  background-color: rgb(197, 42, 42);
+}
+
+.scrollTop {
+  position: fixed;
+  left: 96%;
+  bottom: 40px;
+  height: 32px;
+  font-size: 10px;
+  z-index: 1;
+  cursor: pointer;
+  color: #e90000;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 875px) {
+  .scrollTop {
+    left: 93%;
+    bottom: 40px;
+    height: 45px;
+    font-size: 20px;
+  }
+}

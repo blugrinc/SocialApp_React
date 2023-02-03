@@ -4,7 +4,10 @@ import { PostPage, PostList } from "./app/features/posts/PostPage";
 import { UserPage, UserList } from "./app/features/users/UserPage";
 import { useEffect } from "react";
 import { useAppDispatch } from "./hooks/hooks";
-import { startFetchingPost } from "./app/features/posts/store/post.slice";
+import {
+  startFetchingComments,
+  startFetchingPost,
+} from "./app/features/posts/store/post.slice";
 import { startFetchingUser } from "./app/features/users/store/user.slice";
 import NavBar from "./app/components/navbar/NavBar";
 import { EditPost } from "./app/components/editPostForm.tsx/EditPost";
@@ -14,6 +17,7 @@ function App() {
   useEffect(() => {
     dispatch(startFetchingPost());
     dispatch(startFetchingUser());
+    dispatch(startFetchingComments());
   }, []);
 
   return (

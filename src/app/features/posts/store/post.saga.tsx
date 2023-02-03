@@ -1,26 +1,41 @@
-import { all, takeLatest, call, put } from "redux-saga/effects";
+import { all, takeLatest, call, put, select } from "redux-saga/effects";
 import { postApi } from "../../../../api/postApi";
-
+import { selectPage } from "./post.selector";
 import { Post } from "../../../model/post";
-
 import {
   startFetchingPost,
+  startFetchingComments,
   getAllPost,
+  getAllComment,
   setLoading,
   loadingError,
   deletePost,
   addPost,
   editPost,
 } from "./post.slice";
+import { Comment } from "../../../model/comment";
 
+//LOADER FUNCTION TEST
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+//SAGA
 function* loadPostListSaga() {
   try {
     yield put(setLoading(true));
+    /*     
     const endpoint = `posts`;
+    const response: Post[] = yield call(postApi.getAll, endpoint); 
+    */
+    const page: number = yield select(selectPage);
+    const endpoint = `posts?_limit=10&_page=${page}`;
     const response: Post[] = yield call(postApi.getAll, endpoint);
 
+    yield delay(1500); //LOADING TEST
+
     if (response) {
-      console.log("SAGA/LOADING", response);
+      console.log("SAGA/LOADING/POST", response);
       yield put(getAllPost(response));
       yield put(setLoading(false));
     }
@@ -30,7 +45,24 @@ function* loadPostListSaga() {
     yield put(setLoading(false));
   }
 }
+function* loadCommentListSaga() {
+  try {
+    yield put(setLoading(true));
+    const page: number = yield select(selectPage);
+    const endpoint = `comments?_limit=50&_page=${page}`;
+    const response: Comment[] = yield call(postApi.getAll, endpoint);
 
+    if (response) {
+      console.log("SAGA/LOADING/COMMENT", response);
+      yield put(getAllComment(response));
+      yield put(setLoading(false));
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(loadingError("error"));
+    yield put(setLoading(false));
+  }
+}
 function* deletePostSaga(action: { payload: Post }) {
   try {
     yield put(setLoading(true));
@@ -39,6 +71,7 @@ function* deletePostSaga(action: { payload: Post }) {
 
     if (deletePost) {
       console.log("SAGA/DELETE", action.payload);
+      yield put(setLoading(false));
     }
   } catch (error) {
     console.log(error);
@@ -46,7 +79,6 @@ function* deletePostSaga(action: { payload: Post }) {
     yield put(setLoading(false));
   }
 }
-
 function* addPostSaga(action: { payload: Post }) {
   const dataPost = action.payload;
 
@@ -57,6 +89,7 @@ function* addPostSaga(action: { payload: Post }) {
 
     if (addPost) {
       console.log("SAGA/ADD", action.payload);
+      yield put(setLoading(false));
     }
   } catch (error) {
     console.log(error);
@@ -64,7 +97,6 @@ function* addPostSaga(action: { payload: Post }) {
     yield put(setLoading(false));
   }
 }
-
 function* patchPostSaga(action: { payload: Post }) {
   const dataPost = action.payload;
 
@@ -75,6 +107,7 @@ function* patchPostSaga(action: { payload: Post }) {
 
     if (patchPost) {
       console.log("SAGA/PATCH", action.payload);
+      yield put(setLoading(false));
     }
   } catch (error) {
     console.log(error);
@@ -86,6 +119,7 @@ function* patchPostSaga(action: { payload: Post }) {
 export default function* postSaga() {
   yield all([
     takeLatest(startFetchingPost, loadPostListSaga),
+    takeLatest(startFetchingComments, loadCommentListSaga),
     takeLatest(deletePost, deletePostSaga),
     takeLatest(addPost, addPostSaga),
     takeLatest(editPost, patchPostSaga),
