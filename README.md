@@ -100,7 +100,7 @@ The requirements for this challenge are the exact same requirements of the Front
 
 </details>
 
-# How to run
+# Structure
 
 > ### The application is branched as follows: 
 >
