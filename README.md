@@ -110,7 +110,5 @@ The requirements for this challenge are the exact same requirements of the Front
   >     - feat/CRUD (Challenge #1.1, 1.2 and more)
   >     - feat/Pagination (Challenge #1.3, 1.4, 1.5 )
 
-### After moving into the develop branch, launch the commands: 
-`npm i ` <br>
-`npm start `
+### Move to the [develop branch ](https://github.com/blugrinc/socialApp_React/tree/develop) 
 
